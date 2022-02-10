@@ -1,6 +1,11 @@
 import React from 'react';
 
-const NewComponent = () => {
+type NewComponentPropsType = {
+    students: any
+}
+
+
+const NewComponent = (props: NewComponentPropsType) => {
     return (
         <div>
            new component

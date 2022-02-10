@@ -1,6 +1,7 @@
 import React, {MouseEvent} from 'react';
 import './App.css';
 import {Button} from "./Button/components/Button";
+import NewComponent from "./Map/components/NewComponent";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Button name={"MyYouTubeChannel-1"} callback={() => Button1Foo("I am Andrey", 31, "I live in Moscow")}/>
             <Button name={"MyYouTubeChannel-2"} callback={() => Button2Foo("I am Olga", 33)}/>
             <Button name={"Button"} callback={Button3Foo}/>
+            <NewComponent students={""} />
 
         </div>
     );
