@@ -37,7 +37,7 @@ function App() {
             <Button name={"MyYouTubeChannel-1"} callback={() => Button1Foo("I am Andrey", 31, "I live in Moscow")}/>
             <Button name={"MyYouTubeChannel-2"} callback={() => Button2Foo("I am Olga", 33)}/>
             <Button name={"Button"} callback={Button3Foo}/>
-            <NewComponent students={students}/>
+            <NewComponent students={students} key={""}/>
 
         </div>
     )

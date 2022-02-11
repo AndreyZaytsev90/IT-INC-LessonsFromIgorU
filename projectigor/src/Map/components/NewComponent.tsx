@@ -19,7 +19,7 @@ const NewComponent = (props: NewComponentPropsType) => {
         <ul>
             {props.students.map((objectFromStudentArray, index, array)=>{
                 return (
-                    <li>{objectFromStudentArray.name}</li>
+                    <li key={objectFromStudentArray.id}>{objectFromStudentArray.name}</li>
                 )
             })}
             <li>Coffee</li>
