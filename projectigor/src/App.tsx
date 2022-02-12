@@ -1,10 +1,15 @@
-import React, {MouseEvent} from 'react';
+import React, {MouseEvent, useState} from 'react';
 import './App.css';
 import {Button} from "./Button/components/Button";
 import NewComponent from "./Map/components/NewComponent";
 
 
 function App() {
+
+    /*let a = 1*/
+
+    let[a, setA] = useState(1)
+
     const Button1Foo = (subscriber:string, age: number, address: string) => {
         console.log(subscriber + ", I am " + age + " years old. " + address)
     }
@@ -29,15 +34,27 @@ function App() {
         {id: 10, name: "Christopher", age: 100},
     ]
 
+    const onClickHandler = () => {
+        setA(++a)
+        console.log(a)
+    }
+
+    const onClickHandlerDumping = () => {
+        setA(0)
+    }
+
     return (
         <div className="App">
+            <h1>{a}</h1>
+            <button onClick={onClickHandler}>number</button>
+            <button onClick={onClickHandlerDumping}>dumping</button>
 
             {/*<button>MyYouTubeChannel-1</button>
             <button>MyYouTubeChannel-2</button>*/}
             <Button name={"MyYouTubeChannel-1"} callback={() => Button1Foo("I am Andrey", 31, "I live in Moscow")}/>
             <Button name={"MyYouTubeChannel-2"} callback={() => Button2Foo("I am Olga", 33)}/>
             <Button name={"Button"} callback={Button3Foo}/>
-            <NewComponent students={students}/>
+            <NewComponent key={""} students={students}/>
 
         </div>
     )

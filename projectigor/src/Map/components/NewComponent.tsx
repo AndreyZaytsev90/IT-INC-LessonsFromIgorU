@@ -42,7 +42,7 @@ const NewComponent = (props: NewComponentPropsType) => {
                             <th>Model</th>
                         </tr>
                         <tr>
-                            <td>{index + 1}</td>
+                            <td key={index}>{index + 1}</td>
                             <td>{carsObject.manufacturer}</td>
                             <td>{carsObject.model}</td>
                         </tr>
