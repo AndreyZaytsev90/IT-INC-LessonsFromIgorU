@@ -22,34 +22,37 @@ const NewComponent = (props: NewComponentPropsType) => {
     ]
 
     return (
-        /*<ul>
-            {props.students.map((objectFromStudentArray, index, array) => {
-                return (
-                    <li key={objectFromStudentArray.id}>
-                        <span>{objectFromStudentArray.name}</span>
-                        <span> age: {objectFromStudentArray.age}</span>
-                    </li>
-                )
-            })}
-        </ul>*/
         <div>
-            {topCars.map((carsObject, index) => {
-                return (
-                    <table>
-                        <tr>
-                            <th>№</th>
-                            <th>Manufacturer</th>
-                            <th>Model</th>
-                        </tr>
-                        <tr>
-                            <td key={index}>{index + 1}</td>
-                            <td>{carsObject.manufacturer}</td>
-                            <td>{carsObject.model}</td>
-                        </tr>
-                    </table>
-                )
-            })}
+            <ul>
+                {props.students.map((objectFromStudentArray, index, array) => {
+                    return (
+                        <li key={objectFromStudentArray.id}>
+                            <span>{objectFromStudentArray.name}</span>
+                            <span> age: {objectFromStudentArray.age}</span>
+                        </li>
+                    )
+                })}
+            </ul>
+            <div>
+                {topCars.map((carsObject, index) => {
+                    return (
+                        <table key={index}>
+                            <tr>
+                                <th>№</th>
+                                <th>Manufacturer</th>
+                                <th>Model</th>
+                            </tr>
+                            <tr>
+                                <td>{index + 1}</td>
+                                <td>{carsObject.manufacturer}</td>
+                                <td>{carsObject.model}</td>
+                            </tr>
+                        </table>
+                    )
+                })}
+            </div>
         </div>
+
     );
 };
 

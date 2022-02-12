@@ -2,6 +2,10 @@ import React, {MouseEvent, useState} from 'react';
 import './App.css';
 import {Button} from "./Button/components/Button";
 import NewComponent from "./Map/components/NewComponent";
+import {ComponentFilter} from "./Filter/components/ComponentFilter";
+
+
+type FilterType = "All" | "Rubles" | "Dollars"
 
 
 function App() {
@@ -9,6 +13,29 @@ function App() {
     /*let a = 1*/
 
     let[a, setA] = useState(1)
+
+    let [money, setMoney] = useState([
+        { banknots: 'Dollars ', value: 100, number: ' a1234567890' },
+        { banknots: 'Dollars ', value: 50, number: ' z1234567890' },
+        { banknots: 'RUBLES ', value: 100, number: ' w1234567890' },
+        { banknots: 'Dollars ', value: 100, number: ' e1234567890' },
+        { banknots: 'Dollars ', value: 50, number: ' c1234567890' },
+        { banknots: 'RUBLES ', value: 100, number: ' r1234567890' },
+        { banknots: 'Dollars ', value: 50, number: ' x1234567890' },
+        { banknots: 'RUBLES ', value: 50, number: ' v1234567890' },
+    ])
+
+    const [filter, setFilter] = useState<FilterType>("All")
+
+    let currentMoney = money
+
+    if (filter === "Dollars") {
+        currentMoney = money.filter(filteredMoney => filteredMoney.banknots === 'Dollars ')
+    }
+    if (filter === "Rubles") {
+        currentMoney = money.filter(filteredMoney => filteredMoney.banknots === 'RUBLES ')
+    }
+
 
     const Button1Foo = (subscriber:string, age: number, address: string) => {
         console.log(subscriber + ", I am " + age + " years old. " + address)
@@ -43,6 +70,11 @@ function App() {
         setA(0)
     }
 
+    const onClickHandlerMoney = (nameButton: FilterType) => {
+        setFilter(nameButton)
+    }
+
+
     return (
         <div className="App">
             <h1>{a}</h1>
@@ -54,7 +86,11 @@ function App() {
             <Button name={"MyYouTubeChannel-1"} callback={() => Button1Foo("I am Andrey", 31, "I live in Moscow")}/>
             <Button name={"MyYouTubeChannel-2"} callback={() => Button2Foo("I am Olga", 33)}/>
             <Button name={"Button"} callback={Button3Foo}/>
-            <NewComponent key={""} students={students}/>
+            <NewComponent students={students}/>
+            <ComponentFilter currentMoney={currentMoney}/>
+            <Button name={"Dollars"} callback={() => onClickHandlerMoney("Dollars")}/>
+            <Button name={"Rubles"} callback={() => onClickHandlerMoney("Rubles")}/>
+            <Button name={"All"} callback={() => onClickHandlerMoney("All")}/>
 
         </div>
     )

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: initial;
 }
 
 .App-logo {
@@ -35,4 +35,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.money {
+  padding-left: 25px;
 }
