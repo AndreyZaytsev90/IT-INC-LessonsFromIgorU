@@ -1,7 +1,6 @@
 import React from 'react';
 
 
-
 type NewComponentPropsType = {
     //students: Array<StudentType>
     students: StudentType[]
@@ -17,14 +16,15 @@ type StudentType = {
 const NewComponent = (props: NewComponentPropsType) => {
     return (
         <ul>
-            {props.students.map((objectFromStudentArray, index, array)=>{
+            {props.students.map((objectFromStudentArray, index, array) => {
                 return (
-                    <li key={objectFromStudentArray.id}>{objectFromStudentArray.name}</li>
+                    <li key={objectFromStudentArray.id}>
+                    <span>{objectFromStudentArray.name}</span>
+                    <span> age: {objectFromStudentArray.age}</span>
+
+                    </li>
                 )
             })}
-            <li>Coffee</li>
-            <li>Tea</li>
-            <li>Milk</li>
         </ul>
     );
 };
