@@ -3,6 +3,8 @@ import './App.css';
 import {Button} from "./Button/components/Button";
 import NewComponent from "./Map/components/NewComponent";
 import {ComponentFilter} from "./Filter/components/ComponentFilter";
+import {FullInput} from "./Input/components/FullInput";
+import {Input} from "./Input/components/Input";
 
 
 type FilterType = "All" | "Rubles" | "Dollars"
@@ -12,17 +14,17 @@ function App() {
 
     /*let a = 1*/
 
-    let[a, setA] = useState(1)
+    let [a, setA] = useState(1)
 
     let [money, setMoney] = useState([
-        { banknots: 'Dollars ', value: 100, number: ' a1234567890' },
-        { banknots: 'Dollars ', value: 50, number: ' z1234567890' },
-        { banknots: 'RUBLES ', value: 100, number: ' w1234567890' },
-        { banknots: 'Dollars ', value: 100, number: ' e1234567890' },
-        { banknots: 'Dollars ', value: 50, number: ' c1234567890' },
-        { banknots: 'RUBLES ', value: 100, number: ' r1234567890' },
-        { banknots: 'Dollars ', value: 50, number: ' x1234567890' },
-        { banknots: 'RUBLES ', value: 50, number: ' v1234567890' },
+        {banknots: 'Dollars ', value: 100, number: ' a1234567890'},
+        {banknots: 'Dollars ', value: 50, number: ' z1234567890'},
+        {banknots: 'RUBLES ', value: 100, number: ' w1234567890'},
+        {banknots: 'Dollars ', value: 100, number: ' e1234567890'},
+        {banknots: 'Dollars ', value: 50, number: ' c1234567890'},
+        {banknots: 'RUBLES ', value: 100, number: ' r1234567890'},
+        {banknots: 'Dollars ', value: 50, number: ' x1234567890'},
+        {banknots: 'RUBLES ', value: 50, number: ' v1234567890'},
     ])
 
     const [filter, setFilter] = useState<FilterType>("All")
@@ -37,10 +39,10 @@ function App() {
     }
 
 
-    const Button1Foo = (subscriber:string, age: number, address: string) => {
+    const Button1Foo = (subscriber: string, age: number, address: string) => {
         console.log(subscriber + ", I am " + age + " years old. " + address)
     }
-    const Button2Foo = (subscriber:string, age: number) => {
+    const Button2Foo = (subscriber: string, age: number) => {
         console.log(subscriber + ", I am " + age + " years old.")
     }
     const Button3Foo = () => {
@@ -74,24 +76,56 @@ function App() {
         setFilter(nameButton)
     }
 
+    let [message, setMessage] = useState([
+        {message: "message1"},
+        {message: "message2"},
+        {message: "message3"}
+    ])
+
+    let [title, setTitle] = useState("")
+    console.log(title)
+
+    const addMessage = (title: string) => {
+        let newMessage = {message: title}
+        setMessage([newMessage, ...message] )
+        setTitle("")
+    }
+
 
     return (
         <div className="App">
+
             <h1>{a}</h1>
             <button onClick={onClickHandler}>number</button>
             <button onClick={onClickHandlerDumping}>dumping</button>
 
             {/*<button>MyYouTubeChannel-1</button>
             <button>MyYouTubeChannel-2</button>*/}
-            <Button name={"MyYouTubeChannel-1"} callback={() => Button1Foo("I am Andrey", 31, "I live in Moscow")}/>
-            <Button name={"MyYouTubeChannel-2"} callback={() => Button2Foo("I am Olga", 33)}/>
-            <Button name={"Button"} callback={Button3Foo}/>
+
+            <div>
+                <Button name={"MyYouTubeChannel-1"} callback={() => Button1Foo("I am Andrey", 31, "I live in Moscow")}/>
+                <Button name={"MyYouTubeChannel-2"} callback={() => Button2Foo("I am Olga", 33)}/>
+                <Button name={"Button"} callback={Button3Foo}/>
+            </div>
+
             <NewComponent students={students}/>
             <ComponentFilter currentMoney={currentMoney}/>
+
             <Button name={"Dollars"} callback={() => onClickHandlerMoney("Dollars")}/>
             <Button name={"Rubles"} callback={() => onClickHandlerMoney("Rubles")}/>
             <Button name={"All"} callback={() => onClickHandlerMoney("All")}/>
 
+            <div>
+               {/* <FullInput addMessage={addMessage}/> */}
+                <Input setTitle ={setTitle} title={title}/>
+                <Button name={"+"} callback={() => {addMessage(title)}}/>
+                {message.map((el, index) => {
+                    return (
+                        <div key={index}>{el.message}</div>
+                    )
+
+                })}
+            </div>
         </div>
     )
 }
