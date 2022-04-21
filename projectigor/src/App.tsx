@@ -1,18 +1,18 @@
 import React, {MouseEvent, useState} from 'react';
 import './App.css';
-import {Button} from "./Button/components/Button";
+/*import {Button} from "./Button/components/Button";
 import NewComponent from "./Map/components/NewComponent";
 import {ComponentFilter} from "./Filter/components/ComponentFilter";
 import {FullInput} from "./Input/components/FullInput";
-import {Input} from "./Input/components/Input";
+import {Input} from "./Input/components/Input";*/
 
 
-type FilterType = "All" | "Rubles" | "Dollars"
+/*type FilterType = "All" | "Rubles" | "Dollars"*/
 
 
 function App() {
-
-    /*let a = 1*/
+/*
+    /!*let a = 1*!/
 
     let [a, setA] = useState(1)
 
@@ -99,8 +99,8 @@ function App() {
             <button onClick={onClickHandler}>number</button>
             <button onClick={onClickHandlerDumping}>dumping</button>
 
-            {/*<button>MyYouTubeChannel-1</button>
-            <button>MyYouTubeChannel-2</button>*/}
+            {/!*<button>MyYouTubeChannel-1</button>
+            <button>MyYouTubeChannel-2</button>*!/}
 
             <div>
                 <Button name={"MyYouTubeChannel-1"} callback={() => Button1Foo("I am Andrey", 31, "I live in Moscow")}/>
@@ -116,7 +116,7 @@ function App() {
             <Button name={"All"} callback={() => onClickHandlerMoney("All")}/>
 
             <div>
-               {/* <FullInput addMessage={addMessage}/> */}
+               {/!* <FullInput addMessage={addMessage}/> *!/}
                 <Input setTitle ={setTitle} title={title}/>
                 <Button name={"+"} callback={() => {addMessage(title)}}/>
                 {message.map((el, index) => {
@@ -127,7 +127,11 @@ function App() {
                 })}
             </div>
         </div>
+    )*/
+    return (
+        <div>Hello World!</div>
     )
+
 }
 
 export default App;
