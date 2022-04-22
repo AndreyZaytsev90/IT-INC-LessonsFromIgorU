@@ -9,12 +9,15 @@ import UniversalButton from "./Button/components/UniversalButton";
 import NewComponentFilter from "./Site/NewComponentFilter";
 
 
+//-------------------------------------Filter-------------------------------------
 export type MoneyType = {
     banknots: string
     value: number
     number: string
 }
 export type FilterType = 'all' | 'dollars' | 'rubles'
+//--------------------------------------------------------------------------------
+
 
 function App1() {
 
