@@ -6,7 +6,15 @@ import {Footer} from "./Site/Footer";
 import {NewComponent} from "./Site/NewComponent";
 import {v1} from "uuid";
 import UniversalButton from "./Button/components/UniversalButton";
+import NewComponentFilter from "./Site/NewComponentFilter";
 
+
+export type MoneyType = {
+    banknots: string
+    value: number
+    number: string
+}
+export type FilterType = 'all' | 'dollars' | 'rubles'
 
 function App1() {
 
@@ -63,13 +71,6 @@ function App1() {
     //--------------------------------------------------------------------------------
 
     //-------------------------------------Filter-------------------------------------
-    type MoneyType = {
-        banknots: string
-        value: number
-        number: string
-    }
-    type FilterType = 'all' | 'dollars' | 'rubles'
-
     const [money, setMoney] = useState<Array<MoneyType>>([
         {banknots: 'dollars', value: 100, number: ' a1234567890'},
         {banknots: 'dollars', value: 50, number: ' z1234567890'},
@@ -125,17 +126,7 @@ function App1() {
             {/*-------------------------------------------------------------------------*/}
 
             {/*-------------------------Filter------------------------------------------*/}
-            {currentMoney.map((banknote, index) =>
-                <li key={index}>
-                    <span>{banknote.banknots}</span>
-                    <span>{banknote.value}</span>
-                    <span>{banknote.number}</span>
-                </li>)}
-            <div style={{marginLeft: "25px"}}>
-                <button onClick={() => onClickFilterHandler('rubles')}>rubles</button>
-                <button onClick={() => onClickFilterHandler('dollars')}>dollars</button>
-                <button onClick={() => onClickFilterHandler('all')}>all</button>
-            </div>
+            <NewComponentFilter currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>
             {/*-------------------------------------------------------------------------*/}
         </div>
     )
