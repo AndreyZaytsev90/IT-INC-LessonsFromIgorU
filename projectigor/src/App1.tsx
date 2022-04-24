@@ -7,6 +7,7 @@ import {NewComponent} from "./Site/NewComponent";
 import {v1} from "uuid";
 import UniversalButton from "./Button/components/UniversalButton";
 import NewComponentFilter from "./Site/NewComponentFilter";
+import {UniversalInputButton} from "./Site/UniversalInputButton";
 
 
 //-------------------------------------Filter-------------------------------------
@@ -16,6 +17,7 @@ export type MoneyType = {
     number: string
 }
 export type FilterType = 'all' | 'dollars' | 'rubles'
+
 //--------------------------------------------------------------------------------
 
 
@@ -74,7 +76,7 @@ function App1() {
     //--------------------------------------------------------------------------------
 
     //-------------------------------------Filter-------------------------------------
-    const [money, setMoney] = useState<Array<MoneyType>>([
+    /*const [money, setMoney] = useState<Array<MoneyType>>([
         {banknots: 'dollars', value: 100, number: ' a1234567890'},
         {banknots: 'dollars', value: 50, number: ' z1234567890'},
         {banknots: 'rubles', value: 100, number: ' w1234567890'},
@@ -97,8 +99,26 @@ function App1() {
 
     const onClickFilterHandler = (nameButton: FilterType) => {
         setFilter(nameButton)
-    }
+    }*/
     //--------------------------------------------------------------------------------
+
+    //-------------------------------------Input-------------------------------------
+
+    const [message, setMessage] = useState([
+            {message: 'message1'},
+            {message: 'message2'},
+            {message: 'message3'},
+            {message: 'message4'},
+            {message: 'message5'}
+        ]
+    )
+
+    const addMessage = (title: string) => {
+        console.log(title)
+        const newMessage = {message: title}
+        setMessage([newMessage, ...message])
+
+    }
 
 
     return (
@@ -129,8 +149,21 @@ function App1() {
             {/*-------------------------------------------------------------------------*/}
 
             {/*-------------------------Filter------------------------------------------*/}
-            <NewComponentFilter currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>
+            {/* <NewComponentFilter currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>*/}
             {/*-------------------------------------------------------------------------*/}
+
+            {/*-------------------------Input------------------------------------------*/}
+            {/*<div>
+                <input type="text"/>
+                <button>Add</button>
+            </div>*/}
+            <UniversalInputButton addMessage={addMessage}/>
+            {message.map((m, index) => {
+                return <div key={index}>
+                    {m.message}
+                </div>
+            })}
+            {/*------------------------------------------------------------------------*/}
         </div>
     )
 }
