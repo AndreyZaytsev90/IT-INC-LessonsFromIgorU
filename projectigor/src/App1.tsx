@@ -8,6 +8,7 @@ import {v1} from "uuid";
 import UniversalButton from "./Button/components/UniversalButton";
 import NewComponentFilter from "./Site/NewComponentFilter";
 import {UniversalInputButton} from "./Site/UniversalInputButton";
+import {NewInput} from "./Site/NewInput";
 
 
 //-------------------------------------Filter-------------------------------------
@@ -113,11 +114,19 @@ function App1() {
         ]
     )
 
+    const [title, setTitle] = useState('')
+    console.log(title)
+
     const addMessage = (title: string) => {
         console.log(title)
         const newMessage = {message: title}
         setMessage([newMessage, ...message])
 
+    }
+
+    const callBackHandler = () => {
+        addMessage(title)
+        setTitle('')
     }
 
 
@@ -157,12 +166,23 @@ function App1() {
                 <input type="text"/>
                 <button>Add</button>
             </div>*/}
-            <UniversalInputButton addMessage={addMessage}/>
+           {/* <UniversalInputButton addMessage={addMessage}/>
             {message.map((m, index) => {
                 return <div key={index}>
                     {m.message}
                 </div>
+            })}*/}
+
+            {/*Input and Button раздельно*/}
+            <span style={{display: "flex"}}>
+                <NewInput title={title} setTitle={setTitle}/>
+                <UniversalButton name={"Add"} callBack={callBackHandler}/>
+                </span>
+            {message.map((m, index) => {
+                return <div key={index}>{m.message}</div>
             })}
+
+
             {/*------------------------------------------------------------------------*/}
         </div>
     )
