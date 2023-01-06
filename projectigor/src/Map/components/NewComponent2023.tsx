@@ -24,28 +24,31 @@ export const NewComponent2023 = (props: NewComponent2023PropsType) => {
             <ul>
                 {props.students.map((st, index) => {
                     return (
-                        <li key={st.id}>name: {st.name}, age: {st.age}</li>
+                        <li key={index}>name: {st.name}, age: {st.age}</li>
                     )
                 })}
             </ul>
             <table>
+                <tbody>
                 <tr>
                     <th>Number</th>
                     <th>Manufacturer</th>
                     <th>Model</th>
                 </tr>
+                </tbody>
                 {props.cars.map((cars, index) => {
                     return (
-                        <tr >
-                            <td style={{textAlign: "center"}}>{index+1}</td>
+                        <tbody key={index}>
+                        <tr>
+                            <td style={{textAlign: "center"}}>{index + 1}</td>
                             <td style={{textAlign: "center"}}>{cars.manufacturer}</td>
                             <td style={{textAlign: "center"}}>{cars.model}</td>
                         </tr>
+                        </tbody>
                     )
                 })}
             </table>
         </div>
-
     );
 };
 
