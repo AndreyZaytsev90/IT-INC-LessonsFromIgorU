@@ -4,6 +4,7 @@ import {Body2023} from "./Site2023/Body2023"
 import {Footer2023} from "./Site2023/Footer2023";
 import {NewComponent2023} from "./Map/components/NewComponent2023";
 import {Button2023} from "./Button/components/Button2023";
+import {log} from "util";
 
 const App2023 = () => {
 
@@ -65,6 +66,32 @@ const App2023 = () => {
     setA(0)
   }
 
+  //5. Filter
+  const [money, setMoney] = useState([
+    {banknotes: 'Dollars', value: 100, number: ' a1234567890'},
+    {banknotes: 'Dollars', value: 50, number: ' z1234567890'},
+    {banknotes: 'Rubles', value: 100, number: ' w1234567890'},
+    {banknotes: 'Dollars', value: 100, number: ' e1234567890'},
+    {banknotes: 'Dollars', value: 50, number: ' c1234567890'},
+    {banknotes: 'Rubles', value: 100, number: ' r1234567890'},
+    {banknotes: 'Dollars', value: 50, number: ' x1234567890'},
+    {banknotes: 'Rubles', value: 50, number: ' v1234567890'},
+  ])
+
+  const [filter, setFilter] = useState('All')
+
+  let currentMoney = money
+  if (filter === 'Dollars') {
+    currentMoney = money.filter((filteredMoney) => filteredMoney.banknotes === 'Dollars')
+  }
+  if (filter === 'Rubles') {
+    currentMoney = money.filter((filteredMoney) => filteredMoney.banknotes === 'Rubles')
+  }
+
+  const OnClickFilterHandler = (nameButton: string) => {
+    setFilter(nameButton)
+  }
+
 
   return (
     <div className="App">
@@ -84,6 +111,20 @@ const App2023 = () => {
         <Button2023 name={'PlusOne'} callback={plusOne}/>
         <Button2023 name={'0'} callback={zero}/>
       </span>
+      <ul>
+        {currentMoney.map((banknotes, index) =>
+          <li key={index}>
+            <span style={{paddingLeft: '10px'}}>{banknotes.banknotes}</span>
+            <span style={{paddingLeft: '10px'}}>{banknotes.value}</span>
+            <span style={{paddingLeft: '10px'}}>{banknotes.number}</span>
+          </li>
+        )}
+      </ul>
+      <div style={{paddingLeft: '30px'}}>
+        <Button2023 name={'Dollars'} callback={() => OnClickFilterHandler('Dollars')}/>
+        <Button2023 name={'Rubles'} callback={() => OnClickFilterHandler('Rubles')}/>
+        <Button2023 name={'All'} callback={() => OnClickFilterHandler('All')}/>
+      </div>
       <Footer2023 text={2023}/>
     </div>
   );
