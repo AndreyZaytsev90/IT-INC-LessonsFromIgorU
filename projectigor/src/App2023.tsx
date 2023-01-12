@@ -4,7 +4,9 @@ import {Body2023} from "./Site2023/Body2023"
 import {Footer2023} from "./Site2023/Footer2023";
 import {NewComponent2023} from "./Map/components/NewComponent2023";
 import {Button2023} from "./Button/components/Button2023";
-import {log} from "util";
+import {ComponentFilter2023} from "./Filter/components/ComponentFilter2023";
+
+type FilterType = 'All' | 'Rubles' | 'Dollars'
 
 const App2023 = () => {
 
@@ -78,7 +80,7 @@ const App2023 = () => {
     {banknotes: 'Rubles', value: 50, number: ' v1234567890'},
   ])
 
-  const [filter, setFilter] = useState('All')
+  const [filter, setFilter] = useState<FilterType>('All')
 
   let currentMoney = money
   if (filter === 'Dollars') {
@@ -88,7 +90,7 @@ const App2023 = () => {
     currentMoney = money.filter((filteredMoney) => filteredMoney.banknotes === 'Rubles')
   }
 
-  const OnClickFilterHandler = (nameButton: string) => {
+  const OnClickFilterHandler = (nameButton: FilterType) => {
     setFilter(nameButton)
   }
 
@@ -111,20 +113,24 @@ const App2023 = () => {
         <Button2023 name={'PlusOne'} callback={plusOne}/>
         <Button2023 name={'0'} callback={zero}/>
       </span>
-      <ul>
-        {currentMoney.map((banknotes, index) =>
-          <li key={index}>
-            <span style={{paddingLeft: '10px'}}>{banknotes.banknotes}</span>
-            <span style={{paddingLeft: '10px'}}>{banknotes.value}</span>
-            <span style={{paddingLeft: '10px'}}>{banknotes.number}</span>
-          </li>
-        )}
-      </ul>
-      <div style={{paddingLeft: '30px'}}>
-        <Button2023 name={'Dollars'} callback={() => OnClickFilterHandler('Dollars')}/>
-        <Button2023 name={'Rubles'} callback={() => OnClickFilterHandler('Rubles')}/>
-        <Button2023 name={'All'} callback={() => OnClickFilterHandler('All')}/>
-      </div>
+      {/*<ul>*/}
+      {/*  {currentMoney.map((banknotes, index) =>*/}
+      {/*    <li key={index}>*/}
+      {/*      <span style={{paddingLeft: '10px'}}>{banknotes.banknotes}</span>*/}
+      {/*      <span style={{paddingLeft: '10px'}}>{banknotes.value}</span>*/}
+      {/*      <span style={{paddingLeft: '10px'}}>{banknotes.number}</span>*/}
+      {/*    </li>*/}
+      {/*  )}*/}
+      {/*</ul>*/}
+      {/*<div style={{paddingLeft: '30px'}}>*/}
+      {/*  <Button2023 name={'Dollars'} callback={() => OnClickFilterHandler('Dollars')}/>*/}
+      {/*  <Button2023 name={'Rubles'} callback={() => OnClickFilterHandler('Rubles')}/>*/}
+      {/*  <Button2023 name={'All'} callback={() => OnClickFilterHandler('All')}/>*/}
+      {/*</div>*/}
+      <ComponentFilter2023
+        currentMoney={currentMoney}
+        OnClickFilterHandler={OnClickFilterHandler}
+      />
       <Footer2023 text={2023}/>
     </div>
   );
