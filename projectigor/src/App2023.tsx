@@ -96,49 +96,98 @@ const App2023 = () => {
 
 
     return (
-        <body className="App">
-        <header>
-            <Header2023 title={'HelloWorld!'}/>
-        </header>
-        <section>
-            <Body2023 text={"I am Andrey and i a programmer!"}/>
-            <NewComponent2023 students={students} cars={topCars}/>
-            {/*<button onClick={(event) => {console.log("Hello")}}>MyYouTubeChannel-1</button>*/}
-            <button onClick={(event) => onClickHandler("Andrey")}>MyYouTubeChannel-1</button>
-            <button onClick={(event) => onClickHandler("Olga")}>MyYouTubeChannel-2</button>
-            {/*   <button onClick={function1}>1</button>
+        <>
+            <body className="App">
+            <header>
+                <a href="#" target='_blank'>
+                    <img src="" alt="logo"/>
+                </a>
+                <Header2023 title={'HelloWorld!'}/>
+                <Button2023 name={"login"} callback={() => {
+                }}/>
+            </header>
+            <section>
+                <h1>
+                    <Body2023 text={"I am Andrey and i a programmer!"}/>
+                </h1>
+                <div>
+                    <h3>MAP</h3>
+                    <NewComponent2023 students={students} cars={topCars}/>
+                </div>
+                <div>
+                    <h3>Button</h3>
+                    {/*<button onClick={(event) => {console.log("Hello")}}>MyYouTubeChannel-1</button>*/}
+                    <button onClick={(event) => onClickHandler("Andrey")}>MyYouTubeChannel-1</button>
+                    <button onClick={(event) => onClickHandler("Olga")}>MyYouTubeChannel-2</button>
+                    {/*   <button onClick={function1}>1</button>
             <button onClick={(event) => function2(100200)}>2</button>*/}
-            <Button2023 name={'MyYouTubeChannel-1'} callback={() => ButtonOne('Andrey', 32)}/>
-            <Button2023 name={'MyYouTubeChannel-2'} callback={() => ButtonTwo('Olga', 34)}/>
-            <Button2023 name={'I am a stupid button'} callback={ButtonThree}/>
-            <span>
-        <h1>{a}</h1>
-        <Button2023 name={'PlusOne'} callback={plusOne}/>
-        <Button2023 name={'0'} callback={zero}/>
-      </span>
-            {/*<ul>*/}
-            {/*  {currentMoney.map((banknotes, index) =>*/}
-            {/*    <li key={index}>*/}
-            {/*      <span style={{paddingLeft: '10px'}}>{banknotes.banknotes}</span>*/}
-            {/*      <span style={{paddingLeft: '10px'}}>{banknotes.value}</span>*/}
-            {/*      <span style={{paddingLeft: '10px'}}>{banknotes.number}</span>*/}
-            {/*    </li>*/}
-            {/*  )}*/}
-            {/*</ul>*/}
-            {/*<div style={{paddingLeft: '30px'}}>*/}
-            {/*  <Button2023 name={'Dollars'} callback={() => OnClickFilterHandler('Dollars')}/>*/}
-            {/*  <Button2023 name={'Rubles'} callback={() => OnClickFilterHandler('Rubles')}/>*/}
-            {/*  <Button2023 name={'All'} callback={() => OnClickFilterHandler('All')}/>*/}
-            {/*</div>*/}
-            <ComponentFilter2023
-                currentMoney={currentMoney}
-                OnClickFilterHandler={OnClickFilterHandler}
-            />
-        </section>
-        <footer>
-            <Footer2023 text={2023}/>
-        </footer>
-        </body>
+                    <Button2023 name={'MyYouTubeChannel-1'} callback={() => ButtonOne('Andrey', 32)}/>
+                    <Button2023 name={'MyYouTubeChannel-2'} callback={() => ButtonTwo('Olga', 34)}/>
+                    <Button2023 name={'I am a stupid button'} callback={ButtonThree}/>
+                </div>
+                <div>
+                    <h3>Universal Button with UseState</h3>
+                    <span>
+                        <h2>{a}</h2>
+                        <Button2023 name={'PlusOne'} callback={plusOne}/>
+                        <Button2023 name={'0'} callback={zero}/>
+                    </span>
+                </div>
+                <div>
+                    <h3>Filter</h3>
+                    {/*  <ul>
+              {currentMoney.map((banknotes, index) =>
+                <li key={index}>
+                  <span style={{paddingLeft: '10px'}}>{banknotes.banknotes}</span>
+                  <span style={{paddingLeft: '10px'}}>{banknotes.value}</span>
+                  <span style={{paddingLeft: '10px'}}>{banknotes.number}</span>
+                </li>
+              )}
+            </ul>
+            <div style={{paddingLeft: '30px'}}>
+              <Button2023 name={'Dollars'} callback={() => OnClickFilterHandler('Dollars')}/>
+              <Button2023 name={'Rubles'} callback={() => OnClickFilterHandler('Rubles')}/>
+              <Button2023 name={'All'} callback={() => OnClickFilterHandler('All')}/>
+            </div>*/}
+                    <ComponentFilter2023
+                        currentMoney={currentMoney}
+                        OnClickFilterHandler={OnClickFilterHandler}
+                    />
+                </div>
+            </section>
+            <footer>
+                <ul>
+                    <li>
+                        <a href="https://it-incubator.io/" target='_blank'>
+                            <img src="" alt=""/>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://it-incubator.io/education/front-end" target='_blank'>
+                            <img src="" alt=""/>
+                            All Courses
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://sandbox.it-incubator.io/" target='_blank'>
+                            <img src="" alt=""/>
+                            Sandbox
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://it-incubator.io/contacts" target='_blank'>
+                            <img src="" alt=""/>
+                            Contacts
+                        </a>
+                    </li>
+                </ul>
+
+                <Footer2023 text={2023}/>
+            </footer>
+            </body>
+        </>
+
     );
 };
 
