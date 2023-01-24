@@ -5,6 +5,12 @@ import {Footer2023} from "./Site2023/Footer2023";
 import {NewComponent2023} from "./Map/components/NewComponent2023";
 import {Button2023} from "./Button/components/Button2023";
 import {ComponentFilter2023} from "./Filter/components/ComponentFilter2023";
+import Logo from "../src/assets/images/logo.svg"
+import HomeIcon from "../src/assets/images/home-icon.svg"
+import ComputerIcon from "../src/assets/images/computer-icon.svg"
+import SandBox from "../src/assets/images/sandbox-icon.svg"
+import Contacts from "../src/assets/images/map-pointer-icon.svg"
+import "./Style.css"
 
 type FilterType = 'All' | 'Rubles' | 'Dollars'
 
@@ -97,10 +103,10 @@ const App2023 = () => {
 
     return (
         <>
-            <body className="App">
-            <header>
+            <body>
+            <header className={"header"}>
                 <a href="#" target='_blank'>
-                    <img src="" alt="logo"/>
+                    <img src={Logo} alt="logo"/>
                 </a>
                 <Header2023 title={'HelloWorld!'}/>
                 <Button2023 name={"login"} callback={() => {
@@ -159,25 +165,25 @@ const App2023 = () => {
                 <ul>
                     <li>
                         <a href="https://it-incubator.io/" target='_blank'>
-                            <img src="" alt=""/>
+                            <img src={HomeIcon} alt=""/>
                             Home
                         </a>
                     </li>
                     <li>
                         <a href="https://it-incubator.io/education/front-end" target='_blank'>
-                            <img src="" alt=""/>
+                            <img src={ComputerIcon} alt=""/>
                             All Courses
                         </a>
                     </li>
                     <li>
                         <a href="https://sandbox.it-incubator.io/" target='_blank'>
-                            <img src="" alt=""/>
+                            <img src={SandBox} alt=""/>
                             Sandbox
                         </a>
                     </li>
                     <li>
                         <a href="https://it-incubator.io/contacts" target='_blank'>
-                            <img src="" alt=""/>
+                            <img src={Contacts} alt=""/>
                             Contacts
                         </a>
                     </li>
