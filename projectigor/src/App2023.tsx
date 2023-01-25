@@ -10,7 +10,7 @@ import HomeIcon from "../src/assets/images/home-icon.svg"
 import ComputerIcon from "../src/assets/images/computer-icon.svg"
 import SandBox from "../src/assets/images/sandbox-icon.svg"
 import Contacts from "../src/assets/images/map-pointer-icon.svg"
-import "./Style.css"
+import styles from "./style.module.css"
 
 type FilterType = 'All' | 'Rubles' | 'Dollars'
 
@@ -104,13 +104,12 @@ const App2023 = () => {
     return (
         <>
             <body>
-            <header className={"header"}>
+            <header className={styles.header}>
                 <a href="#" target='_blank'>
                     <img src={Logo} alt="logo"/>
                 </a>
                 <Header2023 title={'HelloWorld!'}/>
-                <Button2023 name={"login"} callback={() => {
-                }}/>
+                <Button2023 name={"login"} callback={() => {}}/>
             </header>
             <section>
                 <h1>
@@ -161,7 +160,7 @@ const App2023 = () => {
                     />
                 </div>
             </section>
-            <footer>
+            <footer className={styles.footer}>
                 <ul>
                     <li>
                         <a href="https://it-incubator.io/" target='_blank'>
@@ -188,7 +187,6 @@ const App2023 = () => {
                         </a>
                     </li>
                 </ul>
-
                 <Footer2023 text={2023}/>
             </footer>
             </body>

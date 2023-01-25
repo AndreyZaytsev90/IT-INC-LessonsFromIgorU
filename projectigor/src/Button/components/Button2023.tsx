@@ -1,8 +1,10 @@
 import React from 'react';
+import styles from "../../../src/style.module.css"
 
 type Button2023PropsType = {
     name: string
     callback: () => void
+
 }
 export const Button2023 = (props: Button2023PropsType) => {
 
@@ -11,6 +13,7 @@ export const Button2023 = (props: Button2023PropsType) => {
     }
 
     return (
-        <button onClick={onClickHandler}>{props.name}</button>
+      <button className={styles.loginButton}
+              onClick={onClickHandler}>{props.name}</button>
     );
 };
