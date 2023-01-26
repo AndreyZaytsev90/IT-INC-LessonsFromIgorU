@@ -109,7 +109,7 @@ const App2023 = () => {
                     <img src={Logo} alt="logo"/>
                 </a>
                 <Header2023 title={'HelloWorld!'}/>
-                <Button2023 name={"login"} callback={() => {}}/>
+                <Button2023 name={"LOGIN"} callback={() => {}}/>
             </header>
             <section>
                 <h1>
