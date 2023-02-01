@@ -3,6 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.container {
+    max-width: 1170px;
+    width: 100%;
+    padding: 0 15px;
+    border: 1px solid red;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.2;
@@ -10,46 +18,106 @@ body {
     font-weight: 400;
     letter-spacing: -0.02em;
 }
-.header {
+header {
     height: 80px;
     display: flex;
-    align-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
 }
-.header,
-.footer {
+header,
+footer {
     background-color: #6C63FF;
 }
+
+h1,
+h3 {
+    text-transform: uppercase;
+}
+.loginButton,
+.loginButtonZero,
+.loginButtonPlusOne,
+.buttonChannel1,
+.buttonChannel2,
+.buttonStuped {
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    border-color: black;
+}
+
 
 .loginButton {
     width: 120px;
     height: 40px;
     border: 2px solid #FFFFFF;
-    border-radius: 5px;
     font-weight: 500;
     letter-spacing: -0.02em;
     text-transform: uppercase;
     background-color: #6C63FF;
-    cursor: pointer;
     color: #FFFFFF;
 }
 
 .loginButtonZero {
     width: 80px;
     height: 20px;
-    border-color: black;
-    border-radius: 5px;
     background-color: red;
-    cursor: pointer;
-    color: #FFFFFF;
 }
 
 .loginButtonPlusOne {
     width: 80px;
     height: 20px;
-    border-color: black;
-    border-radius: 5px;
     background-color: green;
-    cursor: pointer;
+}
+
+.buttonChannel1 {
+    width: 140px;
+    height: 20px;
+    background-color: yellow;
+}
+
+.buttonChannel2 {
+    width: 140px;
+    height: 20px;
+    background-color: aqua;
+}
+
+.buttonStuped {
+    width: 140px;
+    height: 20px;
+    background-color: burlywood;
+}
+
+section {
+    padding: 100px 0 ;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 44px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.card {
+    background: #FFFFFF;
+    border: 2px solid #E7E7E7;
+    border-radius: 5px;
+    padding: 46px 20px ;
+
+}
+
+.content {
+    margin: 40px 0 36px;
+}
+
+a {
     color: #FFFFFF;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+footer img {
+    margin-right: 10px;
 }
