@@ -106,12 +106,14 @@ const App2023 = () => {
             <body>
             <header>
                 <div className={styles.container}>
-                    <a href="#" target='_blank'>
-                        <img src={Logo} alt="logo"/>
-                    </a>
-                    <Header2023 title={'HelloWorld!'}/>
-                    <Button2023 name={"LOGIN"} callback={() => {
-                    }}/>
+                    <div className={styles.headerWrapper}>
+                        <a href="#" target='_blank'>
+                            <img src={Logo} alt="logo"/>
+                        </a>
+                        <Header2023 title={'HelloWorld!'}/>
+                        <Button2023 name={"LOGIN"} callback={() => {
+                        }}/>
+                    </div>
                 </div>
             </header>
             <section>
@@ -119,37 +121,37 @@ const App2023 = () => {
                     <h1>
                         <Body2023 text={"I am Andrey and i a programmer!"}/>
                     </h1>
-                    <div className={styles.card}>
-                        <h3>MAP</h3>
-                        <div className={styles.content}>
-                            <NewComponent2023 students={students} cars={topCars}/>
+                    <div className={styles.cardWrapper}>
+                        <div className={styles.card}>
+                            <h3>MAP</h3>
+                            <div className={styles.content}>
+                                <NewComponent2023 students={students} cars={topCars}/>
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.card}>
-                        <h3>Button</h3>
-                        <div className={styles.content}>
-                            {/*<button onClick={(event) => {console.log("Hello")}}>MyYouTubeChannel-1</button>*/}
-                            <button onClick={(event) => onClickHandler("Andrey")}>MyYouTubeChannel-1</button>
-                            <button onClick={(event) => onClickHandler("Olga")}>MyYouTubeChannel-2</button>
-                            {/*   <button onClick={function1}>1</button>
+                        <div className={styles.card}>
+                            <h3>Button</h3>
+                            <div className={styles.content}>
+                                {/*<button onClick={(event) => {console.log("Hello")}}>MyYouTubeChannel-1</button>*/}
+                                <button onClick={(event) => onClickHandler("Andrey")}>MyYouTubeChannel-1</button>
+                                <button onClick={(event) => onClickHandler("Olga")}>MyYouTubeChannel-2</button>
+                                {/*   <button onClick={function1}>1</button>
             <button onClick={(event) => function2(100200)}>2</button>*/}
-                            <Button2023 name={'MyYouTubeChannel-1'} callback={() => ButtonOne('Andrey', 32)}/>
-                            <Button2023 name={'MyYouTubeChannel-2'} callback={() => ButtonTwo('Olga', 34)}/>
-                            <Button2023 name={'I am a stupid button'} callback={ButtonThree}/>
+                                <Button2023 name={'MyYouTubeChannel-1'} callback={() => ButtonOne('Andrey', 32)}/>
+                                <Button2023 name={'MyYouTubeChannel-2'} callback={() => ButtonTwo('Olga', 34)}/>
+                                <Button2023 name={'I am a stupid button'} callback={ButtonThree}/>
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.card}>
-                        <h3>Universal Button with UseState</h3>
-
-                        <div className={styles.content}>
-                            <h2>{a}</h2>
-                            <Button2023 name={'PlusOne'} callback={plusOne}/>
-                            <Button2023 name={'0'} callback={zero}/>
+                        <div className={styles.card}>
+                            <h3>Universal Button with UseState</h3>
+                            <div className={styles.content}>
+                                <h2>{a}</h2>
+                                <Button2023 name={'PlusOne'} callback={plusOne}/>
+                                <Button2023 name={'0'} callback={zero}/>
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.card}>
-                        <h3>Filter</h3>
-                        {/*  <ul>
+                        <div className={styles.card}>
+                            <h3>Filter</h3>
+                            {/*  <ul>
               {currentMoney.map((banknotes, index) =>
                 <li key={index}>
                   <span style={{paddingLeft: '10px'}}>{banknotes.banknotes}</span>
@@ -163,11 +165,12 @@ const App2023 = () => {
               <Button2023 name={'Rubles'} callback={() => OnClickFilterHandler('Rubles')}/>
               <Button2023 name={'All'} callback={() => OnClickFilterHandler('All')}/>
             </div>*/}
-                        <div className={styles.content}>
-                            <ComponentFilter2023
-                                currentMoney={currentMoney}
-                                OnClickFilterHandler={OnClickFilterHandler}
-                            />
+                            <div className={styles.content}>
+                                <ComponentFilter2023
+                                    currentMoney={currentMoney}
+                                    OnClickFilterHandler={OnClickFilterHandler}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
